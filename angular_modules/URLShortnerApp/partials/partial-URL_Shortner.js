@@ -4,25 +4,25 @@ $scope.arrayOfData=[];
 
 $scope.click=function(fullUrl){
 
-    // if( $scope.fullUrl){
-    //     var data = serviceShortner.fnGetData(fullUrl);
-    //     data.then(function (response) {
+    if( $scope.fullUrl){
+        var data = serviceShortner.fnGetData(fullUrl);
+        data.then(function (response) {
             
-    //         var obj=response.data.result
-    //         $scope.arrayOfData.push({ 'fullUrl': obj[1], 'shortUrl': obj[0] })
-    //         $scope.fullUrl=[];
+            var obj=response.data.result
+            $scope.arrayOfData.push({ 'fullUrl': obj[1], 'shortUrl': obj[0] })
+            $scope.fullUrl=[];
     
-    //     });
-    // }
-    // else{
-    //     alert("Something Went Wrong!");
+        });
+    }
+    else{
+        alert("Something Went Wrong!");
 
-    // }
+    }
     
 }
 
-// $scope.remove_row = function (index) {
-//     $scope.arrayOfData.splice(index, 1);
-// }
+$scope.remove_row = function (index) {
+    $scope.arrayOfData.splice(index, 1);
+}
 
 }]);
