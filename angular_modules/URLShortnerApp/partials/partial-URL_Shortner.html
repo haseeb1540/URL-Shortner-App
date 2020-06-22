@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+body {
+  text-align: center;
+}
+
+#search {
+  width: 357px;
+  margin: 4px auto;
+  text-align: center;
+  display: inline-block;
+}
+
+#search_text {
+  width: 297px;
+  padding: 15px 0 15px 20px;
+  font-size: 16px;
+  font-family: Montserrat, sans-serif;
+  border: 1 none;
+  height: 52px;
+  margin-right: 0;
+  color: rgb(0, 0, 0);
+  outline: none;
+  background: #ffffff;
+  float: left;
+  box-sizing: border-box;
+  transition: all 0.15s;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>URL Shortner Application </h1>
+  <form action="" method="post" class="my-4">
+<!-- <label for="fullUrl" >Url</label> -->
+<input type="url" ng-model="fullUrl" id="fullUrl" class="form-control col mr-2" placeholder="please enter the URL..">
+<br>
+<button class="btn btn-success "type="button" ng-click="click(fullUrl)" style="width: 300px;">Submit</button>
+  </form>
+
+  <br>
+
+  <table class="table table-striped table-responsive ">
+    <thead style="background-color: aliceblue;font-size: 20px;">
+      <tr>
+        <th >Full URL</th>
+        <th>Short URL</th>
+        <th>Remove</th>
+
+      </tr>
+    </thead>
+    <tbody style="text-align: initial;font-size: 15px;">
+      <tr  ng-repeat="value in arrayOfData">
+        <td> {{value.fullUrl}}</td>
+        <td><a href="{{value.shortUrl}}">{{value.shortUrl}}</a></td>
+        <td>
+            <i class="glyphicon glyphicon-trash" ng-click="remove_row($index);item.remove();" style="margin-left: 26px;color: red;"></i> 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
