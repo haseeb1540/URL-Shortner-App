@@ -54,17 +54,23 @@ body {
       <tr>
         <th >Full URL</th>
         <th>Short URL</th>
-        <th>Remove</th>
+        <th>Creation Time</th>
+        <th>Total Visits</th>
+
 
       </tr>
     </thead>
     <tbody style="text-align: initial;font-size: 15px;">
       <tr  ng-repeat="value in arrayOfData">
         <td> {{value.fullUrl}}</td>
-        <td><a href="{{value.shortUrl}}">{{value.shortUrl}}</a></td>
         <td>
-            <i class="glyphicon glyphicon-trash" ng-click="remove_row($index);item.remove();" style="margin-left: 26px;color: red;"></i> 
+          <a  ng-click="onclick(value.shortUrl,count = count + 1)" ng-init="count=0">{{value.shortUrl}}</a>
         </td>
+        <!-- <td>
+            <i class="glyphicon glyphicon-trash" ng-click="remove_row($index);item.remove();" style="margin-left: 26px;color: red;"></i> 
+        </td> -->
+        <td> {{value.creationTime | date :'dd/MMM/yy hh:mm:ss'}}</td>
+        <td>{{count}}</td>
       </tr>
     </tbody>
   </table>
